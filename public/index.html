@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>チャットルーム</title>
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="manifest.json" />
   <style>
     body { font-family: sans-serif; margin: 0; background: #eef; }
     #join, #chat { padding: 20px; }
@@ -24,8 +24,8 @@
 <body>
   <div id="join">
     <h2>ルームに参加</h2>
-    <input id="nickname" placeholder="ニックネーム">
-    <input id="room" placeholder="あいことば（ルーム名）">
+    <input id="nickname" placeholder="ニックネーム" />
+    <input id="room" placeholder="あいことば（ルーム名）" />
     <button onclick="joinRoom()">入室</button>
   </div>
 
@@ -34,28 +34,70 @@
       <button id="leave-button" onclick="leaveRoom()">退室する</button>
     </div>
     <div id="messages"></div>
-    <input id="message" placeholder="メッセージ">
-    <input type="file" id="imageInput">
+    <input id="message" placeholder="メッセージ" />
+    <input type="file" id="imageInput" />
     <button onclick="sendMessage()">送信</button>
   </div>
 
   <!-- 管理者ログイン -->
-  <div id="admin-login" style="position: fixed; bottom: 5px; right: 10px; font-size: 0.8em;">
+  <div
+    id="admin-login"
+    style="position: fixed; bottom: 5px; right: 10px; font-size: 0.8em"
+  >
     <a href="#" onclick="showAdminLogin()">管理者ログイン</a>
   </div>
 
-  <div id="admin-form" style="display:none; position: fixed; bottom: 35px; right: 10px; background: #fff; border: 1px solid #ccc; padding: 10px;">
-    <input type="password" id="admin-password" placeholder="パスワード" style="width:120px;"/>
+  <div
+    id="admin-form"
+    style="
+      display: none;
+      position: fixed;
+      bottom: 35px;
+      right: 10px;
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 10px;
+    "
+  >
+    <input
+      type="password"
+      id="admin-password"
+      placeholder="パスワード"
+      style="width: 120px"
+    />
     <button onclick="sendAdminCommand()">実行</button>
   </div>
 
   <!-- 管理ログ -->
-  <div id="admin-log" style="display:none; position: fixed; top: 10px; left: 10px; width: 300px; height: 90vh; overflow-y: auto; background: #f9f9f9; border: 1px solid #ccc; font-size: 0.9em; padding: 10px;">
+  <div
+    id="admin-log"
+    style="
+      display: none;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      width: 300px;
+      height: 90vh;
+      overflow-y: auto;
+      background: #f9f9f9;
+      border: 1px solid #ccc;
+      font-size: 0.9em;
+      padding: 10px;
+    "
+  >
     <strong>【管理者ログ】</strong>
     <div id="admin-messages"></div>
   </div>
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="main.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("/sw.js")
+        .then(() => console.log("Service Worker 登録成功"))
+        .catch(() => console.log("Service Worker 登録失敗"));
+    }
+  </script>
 </body>
 </html>

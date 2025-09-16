@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: youtube-viewer-robust
+    env: node
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    autoDeploy: true

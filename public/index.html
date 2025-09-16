@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>YouTube Viewer — Robust</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">YT Viewer</div>
+    <div class="searchbox">
+      <input id="searchInput" placeholder="検索ワードを入力" aria-label="search" />
+      <button id="searchBtn">検索</button>
+    </div>
+    <div id="status" class="status">Ready</div>
+  </header>
+
+  <main class="layout">
+    <section class="player-area">
+      <div class="player-card">
+        <video id="player" controls playsinline></video>
+        <h2 id="videoTitle"></h2>
+        <div id="playerError" class="error" hidden></div>
+      </div>
+    </section>
+
+    <aside class="sidebar">
+      <h3>検索結果</h3>
+      <div id="results" class="results"></div>
+    </aside>
+  </main>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="/main.js"></script>
+</body>
+</html>

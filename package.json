@@ -1,0 +1,17 @@
+{
+  "name": "youtube-viewer-robust",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@distube/ytdl-core": "^4.13.3",
+    "express": "^4.18.2",
+    "helmet": "^7.0.0",
+    "express-rate-limit": "^6.7.0",
+    "morgan": "^1.10.0",
+    "youtubei.js": "^9.1.0"
+  }
+}
